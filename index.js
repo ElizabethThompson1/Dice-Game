@@ -54,6 +54,8 @@ resetBtn.addEventListener("click", function () {
     player1Turn = true
     rollBtn.style.display = "block"
     resetBtn.style.display = "none"
+    diceTwo.classList.remove("active")
+    diceOne.classList.add("active")
 })
 
 function display() {
