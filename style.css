@@ -53,6 +53,9 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+#pick-player {
+  background-color: var(--color-4);
+}
 
 #rollBtn {
   background-color: var(--color-5);
