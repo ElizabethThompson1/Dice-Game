@@ -7,8 +7,10 @@ const rollBtn = document.getElementById("rollBtn");
 const resetBtn = document.getElementById("resetBtn");
 const dice = document.getElementsByClassName("dice");
 const pickPlayer = document.getElementById("pick-player");
+const box1 = document.getElementById("box1");
+const box2 = document.getElementById("box2");
 let player = document.getElementById("up-first");
-let box1 = document.getElementsByClassName("box1")
+
 
 let player1Turn = true
 let scoreOne = 0
@@ -29,15 +31,24 @@ function randome() {
         player1Turn = true
         diceTwo.classList.remove("active")
         diceOne.classList.add("active")
+        setTimeout(function () {
+            box1.style.display = "none"
+            box2.style.display = "block"
+        }, 2000);
     } else {
         player.textContent = "player 2"
         player1Turn = false
         message.textContent = "Player 2 Turn"
         diceOne.classList.remove("active")
-        diceTwo.classList.add("active")
-
+        diceTwo.classList.add("active");
+        setTimeout(function () {
+            box1.style.display = "none"
+            box2.style.display = "block"
+        }, 2000);
     }
 }
+
+
 
 rollBtn.addEventListener("click", function () {
 
@@ -73,13 +84,9 @@ rollBtn.addEventListener("click", function () {
 
 })
 
-function resetShadow() {
-    diceTwo.classList.remove("active")
-    diceOne.classList.add("active")
-}
+
 resetBtn.addEventListener("click", function () {
     reset()
-    randome()
 })
 
 function reset() {
@@ -93,7 +100,10 @@ function reset() {
     player1Turn = true
     rollBtn.style.display = "block"
     resetBtn.style.display = "none"
-    resetShadow()
+    diceTwo.classList.remove("active")
+    diceOne.classList.add("active")
+    box1.style.display = "block"
+    box2.style.display = "none"
 }
 
 function display() {
